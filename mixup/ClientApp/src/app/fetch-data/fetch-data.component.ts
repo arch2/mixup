@@ -9,7 +9,7 @@ export class FetchDataComponent {
   public forecasts: WeatherForecast[];
 
   constructor(http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-    const test = '/';
+    const test = '/mixup/api/'; //this obviously needs to be configured.
     http.get<WeatherForecast[]>(`${test}weatherforecast`).subscribe(result => {
       this.forecasts = result;
     }, error => console.error(error));
