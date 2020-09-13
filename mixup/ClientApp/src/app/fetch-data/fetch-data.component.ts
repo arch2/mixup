@@ -15,7 +15,9 @@ export class FetchDataComponent {
     //http.get<WeatherForecast[]>(`${test}weatherforecast`).subscribe(result => {
     //  this.forecasts = result;
     //}, error => console.error(error));
-    http.get(`${test}weatherforecast`)
+    const full = `${test}db`;
+    console.log('full', full);
+    http.get(full)
       .subscribe(result => {
         this.test = result;
       },
