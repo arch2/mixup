@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using mixup.Models;
 
 namespace mixup.Controllers
 {
@@ -19,10 +20,12 @@ namespace mixup.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private AppSettings _appSettings;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, AppSettings appSettings)
         {
             _logger = logger;
+            _appSettings = appSettings;
         }
 
         [HttpGet]
@@ -37,7 +40,8 @@ namespace mixup.Controllers
             //    Summary = Summaries[rng.Next(Summaries.Length)]
             //})
             //.ToArray();
-            var db = @"D:\Sites\fusion\assets\jDB.json";
+            //var db = @"D:\Sites\fusion\assets\jDB.json";
+            var db = _appSettings.DBFile;
             //FileStream fileStream = new FileStream(db, FileMode.Open);
             //var result = new StringBuilder();
             //using (StreamReader reader = new StreamReader(fileStream))
