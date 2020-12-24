@@ -14,3 +14,24 @@ code {
   background-color: #1b6ec2;
   border-color: #1861ac;
 }
+
+.table-striped tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table-striped th {
+  text-align: left;
+  background-color: #4CAF50;
+  color: white;
+}
+
+.table-striped tr:hover {
+  background-color: #ddd;
+}
+.table-striped td, .table-striped th {
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+}
+/*table, th, td {
+  border: 1px solid #ddd;
+}*/
