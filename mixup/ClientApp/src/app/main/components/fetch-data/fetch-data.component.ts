@@ -32,6 +32,7 @@ export class FetchDataComponent {
       //   return 0;
       // })
       this.filtered = this.test.GeneralItems.sort((a, b) => a.Category.localeCompare(b.Category))
+        .concat(this.test.PeopleItems.sort((a, b) => a.Category.localeCompare(b.Category)))
     });
   }
 }
