@@ -1,9 +1,16 @@
-<p *ngIf="!test"><em>Loading...</em></p>
+<p *ngIf="!db"><em>Loading...</em></p>
 <label>
   Filter:
   <input type="text" [formControl]="filter">
 </label>
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="test">
+<label *ngIf="db">
+  Category:
+  <select [formControl]="category">
+    <option *ngFor="let cat of db.Categories" [value]="cat.CategoryId">{{cat.CategoryName}}</option>
+  </select>
+</label>
+
+<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="db">
   <thead>
     <tr>
       <th>Id</th>
