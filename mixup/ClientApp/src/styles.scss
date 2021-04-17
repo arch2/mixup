@@ -1,6 +1,12 @@
-/* You can add global styles to this file, and also import other style files */
-
-/* Provide sufficient contrast against white background */
+:root {
+    --background-color: #1b6ec2;
+    --highlight-color: #ddd;
+    --alternating-color-alt: #f2f2f2;
+    --alternating-color-main: #4caf50;
+}
+body {
+    margin: 0;
+}
 a {
     color: #0366d6;
 }
@@ -9,30 +15,31 @@ code {
     color: #e01a76;
 }
 
-.btn-primary {
-    color: #fff;
-    background-color: #1b6ec2;
-    border-color: #1861ac;
-}
-
 .table-striped tr:nth-child(even) {
-    background-color: #f2f2f2;
+    background-color: var(--alternating-color-alt);
 }
 
 .table-striped th {
     text-align: left;
-    background-color: #4caf50;
+    background-color: var(--alternating-color-main);
     color: white;
 }
 
 .table-striped tr:hover {
-    background-color: #ddd;
+    background-color: var(--highlight-color);
 }
 .table-striped td,
 .table-striped th {
-    border: 1px solid #ddd;
+    border: 1px solid var(--highlight-color);
     padding: 0.5rem;
 }
-/*table, th, td {
-    border: 1px solid #ddd;
-  }*/
+section.navbar {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    button {
+        display: flex;
+        // flex: 1 1 100%;
+    }
+}
