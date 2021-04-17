@@ -26,7 +26,6 @@ export class FetchDataComponent implements OnInit {
       catchError(e => { console.error(e); return e })
     ).subscribe((result: FullDB) => {
       this.db = result;
-      this.db.Categories[0].CategoryName
       this.filter.setValue('');
     });
     merge(
