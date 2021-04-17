@@ -12,10 +12,10 @@ namespace mixup.Controllers
     public class DBController : ControllerBase
     {
 
-        private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ILogger<DBController> _logger;
         private AppSettings _appSettings;
 
-        public DBController(ILogger<WeatherForecastController> logger, AppSettings appSettings)
+        public DBController(ILogger<DBController> logger, AppSettings appSettings)
         {
             _logger = logger;
             _appSettings = appSettings;

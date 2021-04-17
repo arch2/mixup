@@ -1,5 +1,8 @@
 <p *ngIf="!test"><em>Loading...</em></p>
-
+<label>
+  Filter:
+  <input type="text" [formControl]="filter">
+</label>
 <table class='table table-striped' aria-labelledby="tableLabel" *ngIf="test">
   <thead>
     <tr>

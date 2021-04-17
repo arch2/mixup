@@ -13,7 +13,6 @@ export class ConfigService {
   }
   loadConfig() {
     return new Promise((resolve) => {
-      console.log('config?', this.Configuration);
       if (!environment.production) {
         resolve(true);
       }

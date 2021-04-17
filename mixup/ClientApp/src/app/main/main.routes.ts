@@ -15,8 +15,4 @@ export const routes: Route[] = [
     path: 'fetch-data',
     component: FetchDataComponent
   },
-  // {
-  //     path: 'sample',
-  //     loadChildren: '../sample/sample.module#SampleModule'
-  // },
 ];
