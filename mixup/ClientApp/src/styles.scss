@@ -3,9 +3,14 @@
     --highlight-color: #ddd;
     --alternating-color-alt: #f2f2f2;
     --alternating-color-main: #4caf50;
+    --navbar-height: 2rem;
+    --color-h: 25; /* Hue        */
+    --color-s: 50%; /* Saturation */
+    --color-l: 50%; /* Lightness  */
 }
 body {
     margin: 0;
+    font-size: 14px;
 }
 a {
     color: #0366d6;
@@ -38,8 +43,67 @@ section.navbar {
     flex-direction: row;
     align-items: center;
     justify-content: center;
+    height: var(--navbar-height);
     button {
         display: flex;
         // flex: 1 1 100%;
     }
+}
+.db-data {
+    .filters {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+        height: var(--navbar-height);
+        label {
+            display: flex;
+        }
+    }
+    .data {
+        display: grid;
+        gap: 1em;
+        grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
+
+        .category0 {
+            --color-s: 0%;
+        }
+        .category1 {
+            --color-s: 12%;
+        }
+        .category2 {
+            --color-s: 24%;
+        }
+        .category3 {
+            --color-s: 36%;
+        }
+        .category4 {
+            --color-s: 48%;
+        }
+        .category5 {
+            --color-s: 60%;
+        }
+        .category6 {
+            --color-s: 85%;
+        }
+        .category7 {
+            --color-s: 100%;
+        }
+        .data-item {
+            /* Colored border */
+            border: 2px solid hsl(var(--color-h), var(--color-s), var(--color-l));
+
+            /* Subtle tinted background */
+            background-color: hsla(var(--color-h), var(--color-s), var(--color-l), 0.1);
+
+            /* Color text, darkened for good contrast */
+            color: hsl(var(--color-h), var(--color-s), calc(var(--color-l) * 0.7));
+            word-wrap:break-word
+        }
+    }
+}
+.container {
+    height: calc(100vh - var(--navbar-height));
+    overflow-y: auto;
+    display: block;
 }

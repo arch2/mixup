@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ConfigService } from 'src/app/library';
-import { catchError, first, startWith, tap } from 'rxjs/operators';
+import { catchError, first, tap } from 'rxjs/operators';
 import { FormControl } from '@angular/forms';
 import { FullDB, Item } from '../../models';
 import { merge } from 'rxjs';
@@ -26,7 +26,7 @@ export class FetchDataComponent implements OnInit {
       catchError(e => { console.error(e); return e })
     ).subscribe((result: FullDB) => {
       this.db = result;
-      this.filter.setValue('');
+      this.category.setValue('all');
     });
     merge(
       this.filter.valueChanges,
@@ -39,11 +39,8 @@ export class FetchDataComponent implements OnInit {
     const filterText = this.filter.value;
     const filterCategory = this.category.value;
     this.filtered = this.db.Items
-      .filter(x => x.CategoryId == filterCategory)
+      .filter(x => filterCategory == "all" || x.CategoryId == filterCategory)
       .filter(x => Object.keys(x).some(k => x[k].toString().toLowerCase().includes(filterText.toLowerCase())))
       .sort((x, y) => x.Id - y.Id);
-  }
-  CategoryName(id: number) {
-    return this.db.Categories.find(x => x.CategoryId === id).CategoryName;
   }
 }

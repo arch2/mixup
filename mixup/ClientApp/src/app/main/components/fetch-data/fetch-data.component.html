@@ -1,32 +1,23 @@
 <p *ngIf="!db"><em>Loading...</em></p>
-<label>
-  Filter:
-  <input type="text" [formControl]="filter">
-</label>
-<label *ngIf="db">
-  Category:
-  <select [formControl]="category">
-    <option *ngFor="let cat of db.Categories" [value]="cat.CategoryId">{{cat.CategoryName}}</option>
-  </select>
-</label>
-
-<table class='table table-striped' aria-labelledby="tableLabel" *ngIf="db">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Name</th>
-      <th>Category</th>
-      <th>Link</th>
-      <th>Site</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let item of filtered">
-      <td>{{ item.Id }}</td>
-      <td>{{ item.Name }}</td>
-      <td>{{CategoryName(item.CategoryId)}}</td>
-      <td><a href="{{item.Site}}" target="_blank">Site</a></td>
-      <td>{{ item.Site }}</td>
-    </tr>
-  </tbody>
-</table>
+<div *ngIf="db" class="db-data">
+  <section class="filters">
+    <label>
+      Filter:
+      <input type="text" [formControl]="filter">
+    </label>
+    <label>
+      Category:
+      <select [formControl]="category">
+        <option value="all">Reset</option>
+        <option *ngFor="let cat of db.Categories" [value]="cat.CategoryId">{{cat.CategoryName}}</option>
+      </select>
+    </label>
+  </section>
+  <section class="data">
+    <div *ngFor="let item of filtered" [attr.class]="'data-item category'+item.CategoryId">
+      <div>{{ item.Id }}</div>
+      <div>{{ item.Name }}</div>
+      <div><a href="{{item.Site}}" target="_blank">Site</a></div>
+    </div>
+  </section>
+</div>
