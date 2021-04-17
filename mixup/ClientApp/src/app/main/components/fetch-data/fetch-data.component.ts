@@ -22,18 +22,15 @@ export class FetchDataComponent {
     const full = `${test}/db`;
     console.log('full', full);
     http.get(full).pipe(
-      first(x => x != null),
+      first(x => x !== null),
       catchError(e => { console.error(e); return e })
     ).subscribe(result => {
       this.test = result;
-      // this.filtered = this.test.GeneralItems.sort((c1, c2) => {
-      //   if (c1.Category > c2.Category) { return 1; }
-      //   if (c1.Category < c2.Category) { return -1; }
-      //   return 0;
-      // })
-      this.filtered = this.test.GeneralItems.sort((a, b) => a.Category.localeCompare(b.Category))
-        .concat(this.test.PeopleItems.sort((a, b) => a.Category.localeCompare(b.Category)))
+      this.filtered = this.test.Items
     });
+  }
+  CategoryName(id: number) {
+    return this.test.Categories.find(x => x.CategoryId === id).CategoryName;
   }
 }
 
