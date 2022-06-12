@@ -8,9 +8,14 @@
     --color-s: 50%; /* Saturation */
     --color-l: 50%; /* Lightness  */
 }
+.dark-theme {
+  --background-color: #808080;
+}
+
 body {
-    margin: 0;
-    font-size: 14px;
+  margin: 0;
+  font-size: 14px;
+  background-color: var(--background-color);
 }
 a {
     color: #0366d6;
